@@ -89,22 +89,23 @@ class DocumentAll extends BaseController
 		if($arsip == "Administrasi"){
 			$berkas  = new ModelAdminis();
 			$data = $berkas->find($id);
-			$path = $data->file_name;
+			$path = '/../uploads/berkas/'. $data->file_name;
 			header('Content-Type: application/pdf');
 			header('Content-Disposition: inline; filename='.$path);
 			header('Content-Transfer-Encoding: binary');
 			header('Accept-Rangers: bytes');
-			readfile(realpath('uploads/berkas'.$path));
+			readfile($path);
 
 		}elseif($arsip == "Kontrak"){
 			$berkas  = new ModelContract();
 			$data = $berkas->find($id);	
+			
 			$path = $data->file_name;
 			header('Content-Type: application/pdf');
 			header('Content-Disposition: inline; filename='.$path);
 			header('Content-Transfer-Encoding: binary');
 			header('Accept-Rangers: bytes');
-			readfile(realpath('uploads/berkas'.$path));
+			readfile($path);
 
 		}elseif($arsip == "Lelang"){
 			$berkas  = new ModelLelang();
@@ -114,7 +115,7 @@ class DocumentAll extends BaseController
 			header('Content-Disposition: inline; filename='.$path);
 			header('Content-Transfer-Encoding: binary');
 			header('Accept-Rangers: bytes');
-			readfile(realpath('uploads/berkas'.$path));
+			readfile($path);
 
 		}elseif($arsip == "HSE"){
 			$berkas  = new ModelHSE();
@@ -124,7 +125,7 @@ class DocumentAll extends BaseController
 			header('Content-Disposition: inline; filename='.$path);
 			header('Content-Transfer-Encoding: binary');
 			header('Accept-Rangers: bytes');
-			readfile(realpath('uploads/berkas'.$path));
+			readfile($path);
 			
 		}
 	}

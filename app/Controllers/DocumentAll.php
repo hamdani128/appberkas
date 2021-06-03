@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelAdminis;
+use App\Models\ModelContract;
+use App\Models\ModelHSE;
+use App\Models\ModelLelang;
 use PHPUnit\Util\Json;
 
 class DocumentAll extends BaseController
@@ -39,8 +42,12 @@ class DocumentAll extends BaseController
 			<td><?php echo $row['retensi']; ?></td>
 			<td><?php echo $row['file_name']; ?></td>
 			<td>
-				<a href="/download/docall/<?php echo $row['file_name']; ?>" class="btn btn-md btn-primary btn-rounded">
+				<a href="/download/docall/<?php echo $arsip; ?>/<?php echo $row['id']; ?>" class="btn btn-md btn-primary btn-rounded">
 					<i class="mdi mdi-download"></i>
+				</a>
+				<a href="/priview/docall/<?php echo $arsip; ?>/<?php echo $row['id']; ?>" onclick="basicPopup(this.href);return false"
+					class="btn btn-md btn-success btn-rounded mt-1">
+					<i class="mdi mdi-file-pdf-box"></i>
 				</a>
 			</td>
 		</tr>
@@ -56,11 +63,71 @@ class DocumentAll extends BaseController
 		
 	}
 
-	public function download($filename)
+	public function download($arsip,$id)
 	{
-		return $this->response->download('uploads/berkas/' .$filename, null);
+		if($arsip == "Administrasi"){
+			$berkas  = new ModelAdminis();
+			$data = $berkas->find($id);
+			return $this->response->download('uploads/berkas/' . $data->file_name, null);
+		}elseif($arsip == "Kontrak"){
+			$berkas  = new ModelContract();
+			$data = $berkas->find($id);	
+			return $this->response->download('uploads/berkas/' . $data->file_name, null);
+		}elseif($arsip == "Lelang"){
+			$berkas  = new ModelLelang();
+			$data = $berkas->find($id);
+			return $this->response->download('uploads/berkas/' . $data->file_name, null);
+		}elseif($arsip == "HSE"){
+			$berkas  = new ModelHSE();
+			$data = $berkas->find($id);
+			return $this->response->download('uploads/berkas/' . $data->file_name, null);
+		}
 	}
 
+	public function priview($arsip,$id)
+	{	
+		if($arsip == "Administrasi"){
+			$berkas  = new ModelAdminis();
+			$data = $berkas->find($id);
+			$path = $data->file_name;
+			header('Content-Type: application/pdf');
+			header('Content-Disposition: inline; filename='.$path);
+			header('Content-Transfer-Encoding: binary');
+			header('Accept-Rangers: bytes');
+			readfile(realpath('uploads/berkas'.$path));
+
+		}elseif($arsip == "Kontrak"){
+			$berkas  = new ModelContract();
+			$data = $berkas->find($id);	
+			$path = $data->file_name;
+			header('Content-Type: application/pdf');
+			header('Content-Disposition: inline; filename='.$path);
+			header('Content-Transfer-Encoding: binary');
+			header('Accept-Rangers: bytes');
+			readfile(realpath('uploads/berkas'.$path));
+
+		}elseif($arsip == "Lelang"){
+			$berkas  = new ModelLelang();
+			$data = $berkas->find($id);
+			$path = $data->file_name;
+			header('Content-Type: application/pdf');
+			header('Content-Disposition: inline; filename='.$path);
+			header('Content-Transfer-Encoding: binary');
+			header('Accept-Rangers: bytes');
+			readfile(realpath('uploads/berkas'.$path));
+
+		}elseif($arsip == "HSE"){
+			$berkas  = new ModelHSE();
+			$data = $berkas->find($id);
+			$path = $data->file_name;
+			header('Content-Type: application/pdf');
+			header('Content-Disposition: inline; filename='.$path);
+			header('Content-Transfer-Encoding: binary');
+			header('Accept-Rangers: bytes');
+			readfile(realpath('uploads/berkas'.$path));
+			
+		}
+	}
 
 
 }

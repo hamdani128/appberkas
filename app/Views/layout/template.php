@@ -85,7 +85,14 @@
                     $("#show_data").html(data);
                 }
             });
-        })
+        });
+
+        function basicPopup(url) {
+            popupWindow = window.open(url, 'popUpWindow',
+            'height=300,widht=700,left=500,top=50,resizable=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+        }
+
+
     </script>
 </body>
 

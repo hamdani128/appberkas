@@ -57,7 +57,8 @@ $routes->group('', ['filter' => 'login'], function($routes){
 
 	$routes->get('/docall', 'DocumentAll::index');
 	$routes->get('/docall/data', 'DocumentAll::databerkas');
-	$routes->get('/download/docall/(:alpha)', 'DocumentAll::download/$1');
+	$routes->get('/download/docall/(:alpha)/(:num)', 'DocumentAll::download/$1/$2');
+	$routes->get('/priview/docall/(:alpha)/(:num)', 'DocumentAll::priview/$1/$2');
 }); 
 
 

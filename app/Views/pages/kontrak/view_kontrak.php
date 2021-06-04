@@ -1,6 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
 <div class="content-wrapper">
+    <?php if(in_groups('Admin')) : ?>
     <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
@@ -55,6 +56,8 @@
         </div>
 
     </div>
+    <?php endif; ?>
+
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
@@ -85,9 +88,11 @@
                                     <th>
                                         Keterangan File
                                     </th>
+                                    <?php if(in_groups('Admin')) : ?>
                                     <th>
                                         Aksi
                                     </th>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -102,9 +107,14 @@
                                     <td><?= $row->pemenang; ?></td>
                                     <td><?= $row->retensi; ?></td>
                                     <td><a href="/contract/download/<?= $row->id; ?>"><?= $row->file_name ?></a></td>
+
+                                    <?php if(in_groups('Admin')) : ?>
                                     <td class="template-demo">
-                                    <a href="/contract/delete/<?= $row->id; ?>" class="btn btn-md btn-danger btn-rounded"><i class="mdi mdi-delete-sweep"></i></a>
-                                </td>
+                                        <a href="/contract/delete/<?= $row->id; ?>"
+                                            class="btn btn-md btn-danger btn-rounded"><i
+                                                class="mdi mdi-delete-sweep"></i></a>
+                                    </td>
+                                    <?php endif; ?>
                                 </tr>
                                 <?php endforeach; ?>
                                 <?php } else {  ?>

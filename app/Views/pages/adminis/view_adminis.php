@@ -1,6 +1,8 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
 <div class="content-wrapper">
+
+    <?php if(in_groups('Admin')) : ?>
     <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
@@ -16,7 +18,8 @@
                     <p class="card-description">
                         Form Input Berkas Administrasi
                     </p>
-                    <form class="forms-sample" method="post" action="/administration/save" enctype="multipart/form-data">
+                    <form class="forms-sample" method="post" action="/administration/save"
+                        enctype="multipart/form-data">
                         <?= csrf_field(); ?>
                         <div class="form-group">
                             <label for="exampleInputName1">Nomor Kearsipan</label>
@@ -55,6 +58,8 @@
         </div>
 
     </div>
+    <?php endif; ?>
+
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
@@ -85,9 +90,11 @@
                                     <th>
                                         Keterangan File
                                     </th>
+                                    <?php if(in_groups('Admin')) : ?>
                                     <th>
                                         Aksi
                                     </th>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,10 +108,17 @@
                                     <td><?= $row->tahun; ?></td>
                                     <td><?= $row->pemenang; ?></td>
                                     <td><?= $row->retensi; ?></td>
-                                    <td><a href="/administration/download/<?= $row->id; ?>"><?= $row->file_name ?></a></td>
+                                    <td><a href="/administration/download/<?= $row->id; ?>"><?= $row->file_name ?></a>
+                                    </td>
+
+                                    <?php if(in_groups('Admin')) : ?>
                                     <td class="template-demo">
-                                    <a href="/administration/delete/<?= $row->id; ?>" class="btn btn-md btn-danger btn-rounded"><i class="mdi mdi-delete-sweep"></i></a>
-                                </td>
+                                        <a href="/administration/delete/<?= $row->id; ?>"
+                                            class="btn btn-md btn-danger btn-rounded"><i
+                                                class="mdi mdi-delete-sweep"></i></a>
+                                    </td>
+                                    <?php endif; ?>
+
                                 </tr>
                                 <?php endforeach; ?>
                                 <?php } else {  ?>

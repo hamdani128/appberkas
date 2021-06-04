@@ -1,6 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
 <div class="content-wrapper">
+    <?php if(in_groups('Admin')) : ?>
     <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
@@ -55,6 +56,8 @@
         </div>
 
     </div>
+    <?php endif; ?>
+
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
@@ -85,12 +88,14 @@
                                     <th>
                                         Keterangan File
                                     </th>
+                                    <?php if(in_groups('Admin')) : ?>
                                     <th>
                                         Aksi
                                     </th>
                                     <th>
                                         Aksi
                                     </th>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -105,12 +110,19 @@
                                     <td><?= $row->pemenang; ?></td>
                                     <td><?= $row->retensi; ?></td>
                                     <td><a href="/hse/download/<?= $row->id; ?>"><?= $row->file_name ?></a></td>
+
+                                    <?php if(in_groups('Admin')) : ?>
                                     <td>
-                                        <a href="/hse/delete/<?= $row->id; ?>" class="btn btn-md btn-danger btn-rounded"><i class="mdi mdi-delete-sweep"></i></a>
+                                        <a href="/hse/delete/<?= $row->id; ?>"
+                                            class="btn btn-md btn-danger btn-rounded"><i
+                                                class="mdi mdi-delete-sweep"></i></a>
                                     </td>
                                     <td>
-                                        <a href="uploads/berkas/<?= $row->file_name; ?>" class="btn btn-md btn-success btn-rounded media"><i class="mdi mdi-file-pdf-box"></i></a>
+                                        <a href="uploads/berkas/<?= $row->file_name; ?>"
+                                            class="btn btn-md btn-success btn-rounded media"><i
+                                                class="mdi mdi-file-pdf-box"></i></a>
                                     </td>
+                                    <?php endif; ?>
                                 </tr>
                                 <?php endforeach; ?>
                                 <?php } else {  ?>

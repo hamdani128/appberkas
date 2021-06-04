@@ -21,35 +21,46 @@
                 </ul>
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                     <a class="navbar-brand brand-logo" href="index.html"><img src="/assets/images/pertamina.png"
-                            alt="logo"/></a>
+                            alt="logo" /></a>
                     <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/assets/images/pertamina.png"
                             alt="logo" /></a>
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown  d-lg-flex d-none">
-                        <button type="button" class="btn btn-inverse-primary btn-sm">Product </button>
+                        <a href="\" class="btn btn-inverse-succes btn-sm">
+                            <i class="mdi mdi-home"></i> Dasboard
+                        </a>
                     </li>
+                    <?php if(in_groups('Manager')) : ?>
+
                     <li class="nav-item dropdown d-lg-flex d-none">
-                        <a class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm"
+                        <a  class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm"
                             id="nreportDropdown" href="#" data-toggle="dropdown">
-                            Reports
+                            Document
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                             aria-labelledby="nreportDropdown">
-                            <p class="mb-0 font-weight-medium float-left dropdown-header">Reports</p>
-                            <a class="dropdown-item">
-                                <i class="mdi mdi-file-pdf text-primary"></i>
-                                Pdf
+                            <p class="mb-0 font-weight-medium float-left dropdown-header">Document</p>
+                            <a href="/contract" class="dropdown-item">
+                                <i class="mdi mdi-file-document-box text-primary"></i>
+                                Kontrak
                             </a>
-                            <a class="dropdown-item">
-                                <i class="mdi mdi-file-excel text-primary"></i>
-                                Exel
+                            <a href="/lelang" class="dropdown-item">
+                                <i class="mdi mdi-file-document-box text-primary"></i>
+                                Lelang
+                            </a>
+                            <a href="/administration" class="dropdown-item">
+                                <i class="mdi mdi-file-document-box text-primary"></i>
+                                Administrasi
+                            </a>
+                            <a href="/hse" class="dropdown-item">
+                                <i class="mdi mdi-file-document-box text-primary"></i>
+                                HSE PLAN
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown d-lg-flex d-none">
-                        <button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
-                    </li>
+                    <?php endif; ?>
+
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <span class="nav-profile-name"><?= user()->fullname; ?></span>
@@ -76,6 +87,8 @@
             </div>
         </div>
     </nav>
+
+    <?php if(in_groups('Admin')) : ?>
     <nav class="bottom-navbar">
         <div class="container">
             <ul class="nav page-navigation">
@@ -114,6 +127,7 @@
                         <i class="menu-arrow"></i>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="/docall" class="nav-link">
                         <i class="mdi mdi-file-document-box-outline menu-icon"></i>
@@ -122,4 +136,6 @@
             </ul>
         </div>
     </nav>
+    <?php endif; ?>
+
 </div>

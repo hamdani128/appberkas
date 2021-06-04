@@ -17,7 +17,7 @@ class Contract extends BaseController
 	{
 		$berkas = new ModelContract();
 		$data['berkas'] = $berkas->findAll();
-	 	return view('pages/kontrak/view_kontrak', $data);
+		return view('pages/kontrak/view_kontrak', $data);
 	}
 
 	public function add()
@@ -52,9 +52,13 @@ class Contract extends BaseController
 			'file_name' 		=> $fileName
 		];
 		$berkas = new ModelContract();
-		$berkas->insert($query);
-		$dataBerkas->move('uploads/berkas', $fileName);
-		return redirect()->to(base_url('/contract'));
+		$success=$berkas->insert($query);
+		if ($success) {
+			$dataBerkas->move('uploads/berkas/', $fileName);
+			session()->setFlashData('message', 'Data Berhasil Ditambah !');
+			return redirect()->to(base_url('/contract'));
+		}
+		
 	}
 
 	public function download($id)
@@ -67,9 +71,12 @@ class Contract extends BaseController
 	{
 		$berkas = new ModelContract();
 		$data = $berkas->find($id);
-		$berkas->delete($id);
-		\unlink('uploads/berkas/' . $data->file_name);
-		return redirect()->to(base_url('/contract'));
+		$success = $berkas->delete($id);
+		if ($success) {
+			\unlink('uploads/berkas/' . $data->file_name);
+			session()->setFlashData('message', 'Data Berhasil Terhapus !');
+			return redirect()->to(base_url('/contract'));
+		}
 	}
 
 }

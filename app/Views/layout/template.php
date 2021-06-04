@@ -68,6 +68,7 @@
     <script type="text/javascript" src="<?php echo base_url().'/assets/js/jquery.js'?>"></script>
     <script type="text/javascript" src="<?php echo base_url().'/assets/js/bootstrap.js'?>"></script>
     <script type="text/javascript" src="<?php echo base_url().'/assets/js/jquery.dataTables.js'?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'/assets/js/sweetalert2.all.min.js'?>"></script>
     <script>
         $(document).ready(function () {
             $('#contract-table').DataTable();
@@ -80,8 +81,8 @@
             console.log(berkas);
             $.ajax({
                 url: "/docall/data",
-                data: "berkas="+ berkas,
-                success:function(data){
+                data: "berkas=" + berkas,
+                success: function (data) {
                     $("#show_data").html(data);
                 }
             });
@@ -89,10 +90,55 @@
 
         function basicPopup(url) {
             popupWindow = window.open(url, 'popUpWindow',
-            'height=300,widht=700,left=500,top=50,resizable=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+                'height=300,widht=700,left=500,top=50,resizable=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes'
+            )
         }
 
+        const swal = $('.swal').data('swal');
+        if (swal) {
+            Swal.fire({
+                title: 'Good Luck !',
+                text: swal,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
 
+        $(document).on('click', '.btn-hapus', function (e) {
+            e.preventDefault();
+            const href = $(this).attr('href');
+            Swal.fire({
+                title: 'Apakah Anda Yakin Data Akan dihapus ?',
+                text: "Data Yang Telah Terhapus Tidak Bisa Dikembalikan !",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    document.location.href = href;
+                }
+            })
+        })
+
+        $(document).on('click', '.btn-keluar', function (e) {
+            e.preventDefault();
+            const href = $(this).attr('href');
+            Swal.fire({
+                title: 'Apakah Anda Ingin Keluar Aplikasi ini ?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, do it!'
+            }).then((result) => {
+                if (result.value) {
+                    document.location.href = '/logout';
+                }
+            })
+        })
     </script>
 </body>
 

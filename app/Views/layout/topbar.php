@@ -73,7 +73,7 @@
                                 <i class="mdi mdi-settings text-primary"></i>
                                 Settings
                             </a>
-                            <a href="<?= base_url('/logout'); ?>" class="dropdown-item">
+                            <a href="" class="dropdown-item btn-keluar">
                                 <i class="mdi mdi-logout text-primary"></i>
                                 Logout
                             </a>

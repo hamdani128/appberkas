@@ -44,10 +44,13 @@ class Lelang extends BaseController
 			'retensi'			=> $retensi,
 			'file_name' 		=> $fileName
 		];
-		$berkas = new ModelLelang();
-		$berkas->insert($query);
-		$dataBerkas->move('uploads/berkas', $fileName);
-		return redirect()->to(base_url('/lelang'));
+		$berkas  = new ModelLelang();
+		$success = $berkas->insert($query);
+		$dataBerkas->move('uploads/berkas/', $fileName);
+		if ($success) {
+			session()->setFlashData('message', 'Data Berhasil Ditambah !');
+			return redirect()->to(base_url('/lelang'));
+		}
 	}
 
 	public function download($id)
@@ -61,9 +64,12 @@ class Lelang extends BaseController
 	{
 		$berkas = new ModelLelang();
 		$data = $berkas->find($id);
-		\unlink('uploads/berkas/' . $data->file_name);
-		$berkas->delete($id);
-		return redirect()->to(base_url('/lelang'));
+		$success= $berkas->delete($id);
+		if ($success) {
+			\unlink('uploads/berkas/' . $data->file_name);
+			session()->setFlashData('message', 'Data Berhasil Terhapus !');
+			return redirect()->to(base_url('/lelang'));
+		}
 	}
 
 }

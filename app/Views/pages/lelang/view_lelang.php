@@ -62,6 +62,9 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
+                    
+                    <div class="swal" data-swal="<?= session()->get('message'); ?>"></div>
+                    
                     <h4 class="card-title">Informasi Data Berkas Lelang</h4>
                     <div class="table-responsive pt-3">
                         <table class="table table-bordered" id="lelang-table">
@@ -111,7 +114,7 @@
                                     <?php if(in_groups('Admin')) : ?>
                                     <td class="template-demo">
                                         <a href="/lelang/delete/<?= $row->id; ?>"
-                                            class="btn btn-md btn-danger btn-rounded"><i
+                                            class="btn btn-md btn-danger btn-rounded btn-hapus"><i
                                                 class="mdi mdi-delete-sweep"></i></a>
                                     </td>
                                     <?php endif; ?>

@@ -45,10 +45,14 @@ class HSE extends BaseController
 			'retensi'			=> $retensi,
 			'file_name' 		=> $fileName
 		];
-		$berkas = new ModelHSE();
-		$berkas->insert($query);
-		$dataBerkas->move('uploads/berkas', $fileName);
-		return redirect()->to(base_url('/hse'));
+		$berkas  = new ModelHSE();
+		$success = $berkas->insert($query);
+		if ($success) {
+			$dataBerkas->move('uploads/berkas', $fileName);
+			session()->setFlashData('message', 'Data Berhasil Ditambah !');
+			return redirect()->to(base_url('/hse'));
+		}
+		
 	}
 
 	public function download($id)
@@ -60,10 +64,14 @@ class HSE extends BaseController
 
 	public function delete($id)
 	{
-		$berkas = new ModelHSE();
-		$data = $berkas->find($id);
-		\unlink('uploads/berkas/' . $data->file_name);
-		$berkas->delete($id);
-		return redirect()->to(base_url('/hse'));
+		$berkas  = new ModelHSE();
+		$data    = $berkas->find($id);
+		$success = $berkas->delete($id);
+		if ($success) {
+			\unlink('uploads/berkas/' . $data->file_name);
+			session()->setFlashData('message', 'Data Berhasil Terhapus !');
+			return redirect()->to(base_url('/hse'));
+		}
+		
 	}
 }

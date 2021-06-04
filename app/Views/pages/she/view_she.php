@@ -62,6 +62,9 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
+                
+                    <div class="swal" data-swal="<?= session()->get('message'); ?>"></div>
+                    
                     <h4 class="card-title">Informasi Data Berkas HSE Plan</h4>
                     <div class="table-responsive pt-3">
                         <table class="table table-bordered" id="HSE-table">
@@ -119,7 +122,7 @@
                                     </td>
                                     <td>
                                         <a href="uploads/berkas/<?= $row->file_name; ?>"
-                                            class="btn btn-md btn-success btn-rounded media"><i
+                                            class="btn btn-md btn-success btn-rounded media btn-hapus"><i
                                                 class="mdi mdi-file-pdf-box"></i></a>
                                     </td>
                                     <?php endif; ?>

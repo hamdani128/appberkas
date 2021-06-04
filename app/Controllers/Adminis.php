@@ -46,9 +46,12 @@ class Adminis extends BaseController
 			'file_name' 		=> $fileName
 		];
 		$berkas = new ModelAdminis();
-		$berkas->insert($query);
-		$dataBerkas->move('uploads/berkas', $fileName);
-		return redirect()->to(base_url('/administration'));
+		$success= $berkas->insert($query);
+		if ($success) {
+			$dataBerkas->move('uploads/berkas/', $fileName);
+			session()->setFlashData('message', 'Data Berhasil Ditambah !');
+			return redirect()->to(base_url('/administration'));
+		}
 	}
 
 	public function download($id)
@@ -60,10 +63,13 @@ class Adminis extends BaseController
 
 	public function delete($id)
 	{
-		$berkas = new ModelAdminis();
-		$data = $berkas->find($id);
-		\unlink('uploads/berkas/' . $data->file_name);
+		$berkas  = new ModelAdminis();
+		$success = $data = $berkas->find($id);
 		$berkas->delete($id);
-		return redirect()->to(base_url('/administration'));
+		if ($success) {
+			\unlink('uploads/berkas/' . $data->file_name);
+			session()->setFlashData('message', 'Data Berhasil Terhapus !');
+			return redirect()->to(base_url('/administration'));
+		}
 	}
 }

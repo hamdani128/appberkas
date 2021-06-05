@@ -10,6 +10,7 @@ class Lelang extends BaseController
 	{
 		$berkas = new ModelLelang();
 		$data['berkas'] = $berkas->findAll();
+		$data['title'] = "AppBerkas | Lelang";
 		return view('pages/lelang/view_lelang', $data);
 	}
 

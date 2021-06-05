@@ -17,6 +17,7 @@ class Contract extends BaseController
 	{
 		$berkas = new ModelContract();
 		$data['berkas'] = $berkas->findAll();
+		$data['title'] = "AppBerkas | Kontrak";
 		return view('pages/kontrak/view_kontrak', $data);
 	}
 

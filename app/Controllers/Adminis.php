@@ -11,6 +11,7 @@ class Adminis extends BaseController
 	{
 		$berkas = new ModelAdminis();
 		$data['berkas'] = $berkas->findAll();
+		$data['title'] = "AppBerkas | Administrasi dan Teknis";
 		return view('pages/adminis/view_adminis', $data);
 	}
 

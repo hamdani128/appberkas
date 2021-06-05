@@ -11,6 +11,7 @@ class HSE extends BaseController
 	{
 		$berkas = new ModelHSE();
 		$data['berkas'] = $berkas->findAll();
+		$data['title'] = "AppBerkas | SHE";
 		return view('pages/she/view_she', $data);
 	}
 

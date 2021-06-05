@@ -46,48 +46,48 @@
             <div class="card">
                 <div class="card-body pb-0">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h2 class="text-success font-weight-bold">18390</h2>
-                        <i class="mdi mdi-account-outline mdi-18px text-dark"></i>
+                        <h2 class="text-success font-weight-bold"><?= $administrasi; ?></h2>
+                        <i class="mdi mdi-file-document-outline mdi-18px text-darkk"></i>
                     </div>
                 </div>
                 <canvas id="newClient"></canvas>
-                <div class="line-chart-row-title">MY NEW CLIENTS</div>
+                <div class="line-chart-row-title">DOCUMENT ADMINISTRASI & TEKNIS</div>
             </div>
         </div>
         <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body pb-0">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h2 class="text-danger font-weight-bold">839</h2>
-                        <i class="mdi mdi-refresh mdi-18px text-dark"></i>
+                        <h2 class="text-danger font-weight-bold"><?= $contract; ?></h2>
+                        <i class="mdi mdi-file-document-outline mdi-18px text-dark"></i>
                     </div>
                 </div>
                 <canvas id="allProducts"></canvas>
-                <div class="line-chart-row-title">All Products</div>
+                <div class="line-chart-row-title">DOCUMENT CONTRACT</div>
             </div>
         </div>
         <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body pb-0">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h2 class="text-info font-weight-bold">244</h2>
+                        <h2 class="text-info font-weight-bold"><?= $lelang; ?></h2>
                         <i class="mdi mdi-file-document-outline mdi-18px text-dark"></i>
                     </div>
                 </div>
                 <canvas id="invoices"></canvas>
-                <div class="line-chart-row-title">NEW INVOICES</div>
+                <div class="line-chart-row-title">DOCUKEMT LELANG</div>
             </div>
         </div>
         <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body pb-0">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h2 class="text-warning font-weight-bold">3259</h2>
-                        <i class="mdi mdi-folder-outline mdi-18px text-dark"></i>
+                        <h2 class="text-warning font-weight-bold"><?= $hse; ?></h2>
+                        <i class="mdi mdi-file-document-outline mdi-18px text-dark"></i>
                     </div>
                 </div>
                 <canvas id="projects"></canvas>
-                <div class="line-chart-row-title">All PROJECTS</div>
+                <div class="line-chart-row-title">DOCUMENT HSE</div>
             </div>
         </div>
     </div>
@@ -96,14 +96,14 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <h4 class="card-title">Sales Difference</h4>
-                            <canvas id="salesDifference"></canvas>
+                        <div class="col-lg-12">
+                            <h4 class="card-title text-center">Sistem informasi pengelolaan arsip fungsi procurement berbasis web pada PT.Pertamina Marketing Operation Region I</h4>
+                            <!-- <canvas id="salesDifference"></canvas>
                             <p class="mt-3 mb-4 mb-lg-0">Lorem ipsum dolor sit amet,
                                 consectetur adipisicing elit.
-                            </p>
+                            </p> -->
                         </div>
-                        <div class="col-lg-5">
+                        <!-- <div class="col-lg-5">
                             <h4 class="card-title">Best Sellers</h4>
                             <div class="row">
                                 <div class="col-sm-4">
@@ -149,7 +149,7 @@
                             <p class="mb-0 mt-2">Lorem ipsum dolor sit amet,
                                 consectetur adipisicing elit.
                             </p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -14,7 +14,8 @@ class DocumentAll extends BaseController
 
 	public function index()
 	{
-		return view('pages/all_berkas/view_all_berkas');
+		$data['title'] = "AppBerkas | Document All";
+		return view('pages/all_berkas/view_all_berkas', $data);
 	}
 
 	public function databerkas()

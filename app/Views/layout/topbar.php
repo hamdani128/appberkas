@@ -34,7 +34,7 @@
                     <?php if(in_groups('Manager')) : ?>
 
                     <li class="nav-item dropdown d-lg-flex d-none">
-                        <a  class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm"
+                        <a class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm"
                             id="nreportDropdown" href="#" data-toggle="dropdown">
                             Document
                         </a>

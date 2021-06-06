@@ -92,69 +92,59 @@
         </div>
     </div>
     <div class="row mt-4">
-        <div class="col-lg-8 grid-margin stretch-card">
+        <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h4 class="card-title text-center">Sistem informasi pengelolaan arsip fungsi procurement berbasis web pada PT.Pertamina Marketing Operation Region I</h4>
-                            <!-- <canvas id="salesDifference"></canvas>
-                            <p class="mt-3 mb-4 mb-lg-0">Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit.
-                            </p> -->
+                            <h4 class="card-title text-center">Sistem informasi pengelolaan arsip fungsi procurement
+                                berbasis web pada PT.Pertamina Marketing Operation Region I</h4>
                         </div>
-                        <!-- <div class="col-lg-5">
-                            <h4 class="card-title">Best Sellers</h4>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <ul class="graphl-legend-rectangle">
-                                        <li><span class="bg-danger"></span>Automotive</li>
-                                        <li><span class="bg-warning"></span>Books</li>
-                                        <li><span class="bg-info"></span>Software</li>
-                                        <li><span class="bg-success"></span>Video games</li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-8 grid-margin">
-                                    <canvas id="bestSellers"></canvas>
-                                </div>
-                            </div>
-                            <p class="mt-3 mb-4 mb-lg-0">Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit.
-                            </p>
-                        </div>
-                        <div class="col-lg-3">
-                            <h4 class="card-title">Social Media Statistics</h4>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="progress progress-lg grouped mb-2">
-                                        <div class="progress-bar  bg-danger" role="progressbar" style="width: 40%"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 10%"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 20%"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-2">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100 img-fluid" src="/assets/images/image1.jpeg"
+                                            alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100 img-fluid" src="/assets/images/image2.jpeg"
+                                            alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100 img-fluid" src="/assets/images/image1.jpeg"
+                                            alt="Third slide">
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <ul class="graphl-legend-rectangle">
-                                        <li><span class="bg-danger"></span>Instagram (15%)</li>
-                                        <li><span class="bg-warning"></span>Facebook (20%)</li>
-                                        <li><span class="bg-info"></span>Website (25%)</li>
-                                        <li><span class="bg-success"></span>Youtube (40%)</li>
-                                    </ul>
-                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
-                            <p class="mb-0 mt-2">Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit.
-                            </p>
-                        </div> -->
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-12 text-center">
+                            <p>Jl.KL.Yos Sudarso No.8 - 10 Kec.Silalas Kec.Medan Barat</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 mb-3 mb-lg-0">
+        <!-- <div class="col-lg-4 mb-3 mb-lg-0">
             <div class="card congratulation-bg text-center">
                 <div class="card-body pb-0">
                     <img src="/assets/images/faces/face21.jpg" alt="">
@@ -166,8 +156,14 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
-    
+
 </div>
+
+
+<!-- /.carousel -->
+<!-- /.container -->
+
+
 <?= $this->endsection(); ?>

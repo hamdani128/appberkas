@@ -9,11 +9,13 @@
     <!-- base:css -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/base/vendor.bundle.base.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style2.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="<?= base_url(); ?>/assets/images/favicon.png" />
 </head>
@@ -65,10 +67,11 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url().'/assets/js/jquery.js'?>"></script>
-    <script type="text/javascript" src="<?php echo base_url().'/assets/js/bootstrap.js'?>"></script>
-    <script type="text/javascript" src="<?php echo base_url().'/assets/js/jquery.dataTables.js'?>"></script>
-    <script type="text/javascript" src="<?php echo base_url().'/assets/js/sweetalert2.all.min.js'?>"></script>
+
+    <script type="text/javascript" src="<?php echo base_url() ?>/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>/assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>/assets/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>/assets/js/sweetalert2.all.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#contract-table').DataTable();
